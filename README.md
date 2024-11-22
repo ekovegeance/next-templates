@@ -6,9 +6,16 @@ First, run the development server:
 
 ```bash
 git clone https://github.com/ekovegeance/Fullstack-Nextjs-Templates.git
-```
-```bash
 npm install && npm run dev
+```
+Configure your local environment
+```bash
+cp .env.local.example .env.local
+```
+Migrate database
+```bash
+npx prisma migrate dev --name init
+npx prisma studio
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -23,6 +30,10 @@ Modern Javascript Stack
 - [Auth JS](https://next-auth.js.org/getting-started/introduction) - Credentials Providers
 
 With shadcn/ui [Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.](https://ui.shadcn.com/) 
+
+## Features
+- Auth (Credential, Github Sign In)
+- Dashboard (On Develop)
 
 ## Deploy on Vercel
 
