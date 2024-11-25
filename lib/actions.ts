@@ -1,3 +1,4 @@
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 "use server";
@@ -6,7 +7,7 @@ import { registerSchema, loginSchema } from "@/lib/zod";
 import { hashSync } from "bcrypt-ts";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 
 export const registerCredentials = async (prevState: unknown, formData: FormData) => {
@@ -64,3 +65,6 @@ export const loginCredentials = async (prevState: unknown, formData: FormData) =
     }
 }
 
+export async function SignOut() {
+    await signOut({redirectTo: "/login"});
+  }

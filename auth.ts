@@ -4,23 +4,26 @@ import { prisma } from "@/lib/prisma"
 import Credentials from "next-auth/providers/credentials"
 import { loginSchema } from "@/lib/zod"
 import { compareSync } from "bcrypt-ts"
+import GitHub from "next-auth/providers/github"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
     session: { strategy: "jwt" },
     pages: { signIn: "/login" },
-    providers: [
+    providers: [GitHub,
         Credentials({
             credentials: {
                 email: {},
                 password: {},
             },
             authorize: async (credentials) => {
+
                 const validatedFields = loginSchema.safeParse(credentials);
 
                 if (!validatedFields.success) {
                     return null;
                 }
+
                 const { email, password } = validatedFields.data;
                 const user = await prisma.user.findUnique({ where: { email } });
 
@@ -28,19 +31,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     throw new Error("No user found");
                 }
 
-                const passwordMatch = compareSync(password, user.password); // Compare the password from the form with the hashed password in the database
+                const passwordMatch = compareSync(password, user.password);
 
                 if (!passwordMatch) {
                     return null;
                 }
                 return user;
-            }
+            },
+
         }),
     ],
     callbacks: {
+        // Make sure the user is authorized to sign in/ Middleware
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
-            const ProtectedRoutes = ["/dashboard", "/settings"];
+            const ProtectedRoutes = ["/dashboard", "/settings",];
 
             if (!isLoggedIn && ProtectedRoutes.includes(nextUrl.pathname)) {
                 return Response.redirect(new URL("/login", nextUrl));
@@ -48,6 +53,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             if (isLoggedIn && nextUrl.pathname.startsWith("/login")) {
                 return Response.redirect(new URL("/dashboard", nextUrl));
             }
+            // if (!isLoggedIn && nextUrl.pathname.startsWith("/register")) {
+            //     return Response.redirect(new URL("/", nextUrl));
+            // }
             return true;
         },
         jwt({ token, user }) {

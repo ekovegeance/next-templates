@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,13 +17,14 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
 import { loginCredentials } from "@/lib/actions";
 import { useFormState, useFormStatus } from "react-dom";
+import { signIn } from "next-auth/react";
 
 export function LoginForm() {
+  const searchParams = useSearchParams(); // Hook untuk mendapatkan query string
+  const error = searchParams?.get("error"); // Mendapatkan nilai dari query parameter `error`
+
   const [state, formAction] = useFormState(loginCredentials, null);
   const { pending } = useFormStatus();
-
-  console.log(state);
-  console.log(formAction);
 
   return (
     <form action={formAction}>
@@ -34,6 +36,13 @@ export function LoginForm() {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {error === "OAuthAccountNotLinked" ? (
+            <Alert variant="destructive" className="my-3">
+            <TriangleAlert />
+            <AlertTitle className="font-semibold">{error}</AlertTitle>
+            <AlertDescription>Account already use by other provider</AlertDescription>
+          </Alert>
+          ) : null}
           {state?.message && (
             <Alert variant="destructive" className="my-3">
               <TriangleAlert />
@@ -72,8 +81,12 @@ export function LoginForm() {
             <Button disabled={pending} type="submit" className="w-full">
               {pending ? "Login..." : "Login"}
             </Button>
-            <Button variant="outline" className="w-full">
-              Login with Google
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => signIn("github")}
+            >
+              Login with GitHub
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
