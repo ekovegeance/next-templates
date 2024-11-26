@@ -36,7 +36,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 if (!passwordMatch) {
                     return null;
                 }
-                return user;
+                return { ...user, role: user.role || 'user', };
             },
 
         }),

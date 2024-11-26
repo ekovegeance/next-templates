@@ -154,6 +154,8 @@ const data = {
   ],
 }
 
+
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: session, status } = useSession()
   console.log(session);
@@ -184,7 +186,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={session?.user} />
+        <NavUser user={session?.user as {name: string; email: string; image: string; }} />
       </SidebarFooter>
     </Sidebar>
   )

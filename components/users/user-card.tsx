@@ -2,12 +2,14 @@ import { Mail } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
-interface UserCardProps {
-  name: string
-  email: string
-  role: string
-  image: string
 
+
+interface UserCardProps {
+  id: string 
+  name: string
+  email: string 
+  role: string 
+  image: string 
 }
 
 export default function UserCard({

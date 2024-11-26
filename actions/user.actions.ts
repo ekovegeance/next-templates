@@ -1,11 +1,17 @@
+// actions/user.actions.ts
+import { prisma } from '@/lib/prisma';
+import { User } from '@/types/user';
 
-import { PrismaClient } from "@prisma/client"
-
-
-
-const prisma = new PrismaClient();
-
-export const getUsers = async () => {
-    const users = await prisma.user.findMany({ select: { name: true, email: true, image: true, role: true } });
+export const getUsers = async (): Promise<User[]> => {
+    const users = await prisma.user.findMany({
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true,
+            role: true,
+        },
+    });
+    
     return users;
-}
+};

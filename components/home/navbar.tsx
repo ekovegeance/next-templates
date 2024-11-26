@@ -54,7 +54,7 @@ export function Navbar() {
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:items-center">
               {status === "authenticated" && session?.user ? (
-                <NavUser user={session.user} />
+                <NavUser user={session.user as {name: string; email: string; image: string;}} />
               ) : (
                 <div className="flex items-center px-4 gap-2">
                   <Link href="/login">
@@ -119,7 +119,7 @@ export function Navbar() {
               <div className="flex items-center px-4 gap-2">
                 {status === "authenticated" && session?.user ? (
                   <div>
-                    <NavUser user={session?.user} />
+                    <NavUser user={session.user as {name: string; email: string; image: string;}} />
                   </div>
                 ) : (
                   <>
