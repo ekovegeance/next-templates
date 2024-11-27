@@ -42,10 +42,10 @@ export function Navbar() {
                   href="/services"
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
-                  Services
+                  CRUD
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/crud"
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
                   Contact
@@ -100,16 +100,16 @@ export function Navbar() {
                 href="/about"
                 className="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-900"
               >
-                About
+                Users
               </Link>
               <Link
-                href="/services"
+                href="/users"
                 className="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-900"
               >
-                Services
+                CRUD
               </Link>
               <Link
-                href="/contact"
+                href="/crud"
                 className="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-900"
               >
                 Contact
