@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Command, Menu, X } from "lucide-react";
 // import { NavUser } from "./nav-user";
+import { Suspense } from 'react';
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import { NavUser } from "./nav-user";
@@ -39,13 +40,13 @@ export function Navbar() {
                   Users
                 </Link>
                 <Link
-                  href="/services"
+                  href="/crud"
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
                   CRUD
                 </Link>
                 <Link
-                  href="/crud"
+                  href="/contact"
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
                   Contact
@@ -116,6 +117,7 @@ export function Navbar() {
               </Link>
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
+              <Suspense fallback={<p>Loading...</p>}>
               <div className="flex items-center px-4 gap-2">
                 {status === "authenticated" && session?.user ? (
                   <div>
@@ -137,6 +139,7 @@ export function Navbar() {
                   </>
                 )}
               </div>
+              </Suspense>
             </div>
           </div>
         )}
