@@ -1,6 +1,8 @@
-// actions/user.actions.ts
 import { prisma } from '@/lib/prisma';
 import { User } from '@/types/user';
+
+
+
 
 export const getUsers = async (): Promise<User[]> => {
     const users = await prisma.user.findMany({
