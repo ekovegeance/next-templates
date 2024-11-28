@@ -28,12 +28,15 @@ Modern Javascript Stack
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Prisma ORM](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql) - PostgreSQL
 - [Auth JS](https://next-auth.js.org/getting-started/introduction) - Credentials Providers
+- [Dependencies/ third party library](https://github.com/ekovegeance/Fullstack-Nextjs-Templates/blob/main/package.json)
 
 With shadcn/ui [Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.](https://ui.shadcn.com/) 
 
 ## Features
 - Auth (Credential, Github Sign In)
 - Dashboard (On Develop)
+- CRUD [Product]
+- Profile Setting
 
 ## Deploy on Vercel
 
