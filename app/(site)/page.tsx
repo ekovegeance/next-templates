@@ -1,7 +1,6 @@
 "use client";
-import { Navbar } from "@/components/home/navbar";
 import { useSession } from "next-auth/react";
-import { Author } from "@/components/home/author";
+import { Author } from "@/components/site/author";
 import {
   Card,
   CardHeader,
@@ -16,8 +15,7 @@ export default function Home() {
   const { data: session, status } = useSession();
   return (
     <>
-      <Navbar />
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 px-4 lg:px-8 pt-20 ">
+      <main>
         {/* <WorldMapHome/> */}
         <h1 className="text-3xl font-bold text-zinc-900">Fullstack Next</h1>
         <p className="text-lg text-zinc-500">CRUD Nextjs Apps Templates</p>
