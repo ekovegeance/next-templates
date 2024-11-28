@@ -39,6 +39,7 @@ With shadcn/ui [Beautifully designed components that you can copy and paste into
 - Profile Setting
 
 ## Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fekovegeance%2FFullstack-Nextjs-Templates%2F&showOptionalTeamCreation=false&teamSlug=ekovegeances-projects)
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
