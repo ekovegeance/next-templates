@@ -10,7 +10,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { WorldMapHome } from "@/components/home/worldmap";
+// import { WorldMapHome } from "@/components/home/worldmap";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="max-w-7xl mx-auto py-6 sm:px-6 px-4 lg:px-8 pt-20 ">
-        <WorldMapHome/>
+        {/* <WorldMapHome/> */}
         <h1 className="text-3xl font-bold text-zinc-900">Fullstack Next</h1>
         <p className="text-lg text-zinc-500">CRUD Nextjs Apps Templates</p>
         <p className=" text-zinc-500">
