@@ -18,7 +18,7 @@ npx prisma migrate dev --name init
 npx prisma studio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. And see [Documentation](https://github.com/ekovegeance/Fullstack-Nextjs-Templates/blob/main/DOCS.md)
 
 
 ## Tech Stack
