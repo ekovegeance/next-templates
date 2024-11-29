@@ -33,11 +33,10 @@ Modern Javascript Stack
 With shadcn/ui [Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.](https://ui.shadcn.com/) 
 Generate UI [v0](https://v0.dev/https://v0.dev/)
 
-## Features
-- Auth (Credential, Github Sign In)
-- Dashboard (On Develop)
-- CRUD [Product]
-- Profile Setting
+## Show more
+- [Project](https://github.com/users/ekovegeance/projects/8)
+- [Discussions](https://github.com/ekovegeance/Fullstack-Nextjs-Templates/discussions/5)
+
 
 ## Deploy on Vercel
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fekovegeance%2FFullstack-Nextjs-Templates%2F&showOptionalTeamCreation=false&teamSlug=ekovegeances-projects)
