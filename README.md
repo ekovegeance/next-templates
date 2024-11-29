@@ -31,6 +31,7 @@ Modern Javascript Stack
 - [Dependencies/ third party library](https://github.com/ekovegeance/Fullstack-Nextjs-Templates/blob/main/package.json)
 
 With shadcn/ui [Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.](https://ui.shadcn.com/) 
+Generate UI [v0](https://v0.dev/https://v0.dev/)
 
 ## Features
 - Auth (Credential, Github Sign In)
