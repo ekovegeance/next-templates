@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, TriangleAlert } from "lucide-react";
+import { TriangleAlert } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { registerCredentials } from "@/lib/actions";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
+import SubmitButton from "./submit-button";
 
 export function RegisterForm() {
   const [state, formAction] = useFormState(registerCredentials, null);
-  const { pending } = useFormStatus();
+
 
   console.log("State:", state); // Debugging
   console.log("Form Action:", formAction); // Debugging
@@ -79,10 +79,7 @@ export function RegisterForm() {
                   </Label>
                 )}
               </div>
-              <Button disabled={pending} type="submit" className="w-full">
-                {pending ? "Registering..." : "Create Account"}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <SubmitButton submitting={"Registering..."} submit={"Register"}/>
             </div>
             <div className="mt-4 text-center text-sm">
               Have an account?{" "}

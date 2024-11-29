@@ -9,14 +9,12 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import Link from "next/link";
-// import { WorldMapHome } from "@/components/home/worldmap";
 
 export default function Home() {
   const { data: session, status } = useSession();
   return (
     <>
       <main>
-        {/* <WorldMapHome/> */}
         <h1 className="text-3xl font-bold text-zinc-900">Fullstack Next</h1>
         <p className="text-lg text-zinc-500">CRUD Nextjs Apps Templates</p>
         <p className=" text-zinc-500">
@@ -24,7 +22,15 @@ export default function Home() {
         </p>
         <Card>
           <CardHeader>
-            <CardTitle>Authentication for the Web. <Link className="underline text-violet-700" href="https://authjs.dev/">Auth.js</Link></CardTitle>
+            <CardTitle>
+              Authentication for the Web.{" "}
+              <Link
+                className="underline text-violet-700"
+                href="https://authjs.dev/"
+              >
+                Auth.js
+              </Link>
+            </CardTitle>
             <CardDescription>
               In this example, only some fields in the user object is passed to
               the page to avoid exposing sensitive information.

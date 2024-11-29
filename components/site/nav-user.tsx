@@ -1,4 +1,9 @@
-import { BadgeCheck, ChevronsUpDown, LayoutDashboard, LogOut } from "lucide-react";
+import {
+  BadgeCheck,
+  ChevronsUpDown,
+  LayoutDashboard,
+  LogOut,
+} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import {
@@ -11,6 +16,8 @@ import {
 } from "../ui/dropdown-menu";
 import Link from "next/link";
 import { SignOut } from "@/lib/actions";
+
+
 
 export function NavUser({
   user,
@@ -43,7 +50,6 @@ export function NavUser({
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </Button>
-
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56 ms-4" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
@@ -67,7 +73,7 @@ export function NavUser({
             </DropdownMenuItem>
             <DropdownMenuItem>
               <BadgeCheck />
-              <Link href="/settings">Account</Link>
+              <Link href="/account">Account</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

@@ -17,16 +17,17 @@ import { TriangleAlert } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
 import { loginCredentials } from "@/lib/actions";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 import { signIn } from "next-auth/react";
 import { Github } from "lucide-react";
+import SubmitButton from "./submit-button";
 
 export function LoginForm() {
   const searchParams = useSearchParams(); // Hook untuk mendapatkan query string
   const error = searchParams?.get("error"); // Mendapatkan nilai dari query parameter `error`
 
   const [state, formAction] = useFormState(loginCredentials, null);
-  const { pending } = useFormStatus();
+
 
   return (
     <div>
@@ -83,9 +84,10 @@ export function LoginForm() {
                   <Label className="text-red-500">{state.error.password}</Label>
                 )}
               </div>
-              <Button disabled={pending} type="submit" className="w-full">
-                {pending ? "Login..." : "Login"}
-              </Button>
+              <SubmitButton
+                submitting="Login..."
+                submit="Login"
+              />
               <Button
                 variant="outline"
                 className="w-full"

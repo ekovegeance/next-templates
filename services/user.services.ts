@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import { User } from '@/types/user';
+import { revalidatePath } from 'next/cache';
 
 
 
@@ -14,6 +15,6 @@ export const getUsers = async (): Promise<User[]> => {
             role: true,
         },
     });
-    
     return users;
+    revalidatePath('/users');
 };

@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/sidebar";
 import { SignOut } from "@/lib/actions";
 import { Button } from "../ui/button";
+import Link from 'next/link';
 
 export function NavUser({
   user,
@@ -84,9 +85,9 @@ export function NavUser({
                 Dashboard
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <BadgeCheck />
-                Account
-              </DropdownMenuItem>
+              <BadgeCheck />
+              <Link href="/account">Account</Link>
+            </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

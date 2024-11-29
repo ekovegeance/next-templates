@@ -45,7 +45,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // Make sure the user is authorized to sign in/ Middleware
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
-            const ProtectedRoutes = ["/dashboard", "/settings",];
+            const ProtectedRoutes = ["/dashboard", "/account",];
 
             if (!isLoggedIn && ProtectedRoutes.includes(nextUrl.pathname)) {
                 return Response.redirect(new URL("/login", nextUrl));
