@@ -13,6 +13,7 @@ import clsx from "clsx";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Users", href: "/users" },
+  { name: "Posts", href: "/posts" },
   { name: "CRUD", href: "/crud" },
   { name: "contact", href: "/contact" },
 ];

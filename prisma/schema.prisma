@@ -44,6 +44,7 @@ model User {
   image         String?
   password      String?
   role          String?   @default("user")
+  posts         Post[]
   products      Product[]
   accounts      Account[]
   sessions      Session[]
@@ -64,6 +65,17 @@ model Product {
   id        String   @id @default(cuid())
   name      String
   price     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  slug      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   userId    String
