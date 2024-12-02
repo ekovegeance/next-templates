@@ -6,9 +6,16 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { auth } from "@/auth";
+import { StatsCard } from '../../components/dashboard/stats-card';
+import { getUsers } from "@/services/user.services";
+import { getPosts } from "@/services/post.services";
+import { Card, CardTitle, CardHeader, CardContent } from '@/components/ui/card';
+import { RecentUsers } from "@/components/dashboard/recent-users";
 
 export default async function Page() {
   const session = await auth();
+  const users = await getUsers();
+  const posts = await getPosts();
 
   console.log("Log from server",session);
   return (
@@ -22,12 +29,46 @@ export default async function Page() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+          {/* <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+            <div className="aspect-video rounded-xl bg-muted/50" />
+            <div className="aspect-video rounded-xl bg-muted/50" />
+            <div className="aspect-video rounded-xl bg-muted/50" />
+          </div> */}
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+              <StatsCard
+                title="Requests Features"
+                value="?"
+                description="requests for new features"
+              />
+              <StatsCard
+                title="Total Posts"
+                value={posts.length.toString()}
+                description="+180.1% from last month"
+              />
+              <StatsCard
+                title="Total Users"
+                value={users.length.toString()}
+                description="+5% from last month"
+              />
+            </div>
+            <div className="mt-8 grid auto-rows-min gap-4 md:grid-cols-2">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Recent Users</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <RecentUsers />
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Overview</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Your overview content here</p>
+                </CardContent>
+              </Card>
+            </div>
         </div>
       </SidebarInset>
     </SidebarProvider>
