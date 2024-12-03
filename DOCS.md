@@ -34,6 +34,7 @@ Import components as needed, for example:
 
 ```tsx
 import { LoginForm } from "@/components/auth/login-form"
+```
 
 
 
