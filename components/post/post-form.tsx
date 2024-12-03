@@ -1,11 +1,11 @@
 'use client';
 
-import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
 import {createPost} from "@/services/post.services";
+import SubmitButton from '../stocks/submit-button';
 
 export default function PostForm() {
   
@@ -41,10 +41,7 @@ export default function PostForm() {
             />
           </div>
           <div className="pt-4 flex justify-between">
-            <Button type="submit">Submit Post</Button>
-            {/* <Button type="button" variant="outline" onClick={() => setShowPreview(!showPreview)}>
-            {showPreview ? "Hide Preview" : "Show Preview"}
-          </Button> */}
+            <SubmitButton submitting={"Submit Post..."} submit={"Submit Post"}/>
           </div>
         </form>
       </CardContent>

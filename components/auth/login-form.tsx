@@ -20,7 +20,7 @@ import { loginCredentials } from "@/lib/actions";
 import { useFormState } from "react-dom";
 import { signIn } from "next-auth/react";
 import { Github } from "lucide-react";
-import SubmitButton from "./submit-button";
+import SubmitButton from "../stocks/submit-button";
 
 export function LoginForm() {
   const searchParams = useSearchParams(); // Hook untuk mendapatkan query string

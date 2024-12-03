@@ -37,7 +37,7 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
-  const handlesignOut = async () => {
+  const handleSignOut = async () => {
     await SignOut();
   };
   return (
@@ -92,7 +92,7 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut />
-              <Button variant="ghost" onClick={handlesignOut}>
+              <Button variant="ghost" onClick={handleSignOut}>
                 Log Out
               </Button>
             </DropdownMenuItem>

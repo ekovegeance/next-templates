@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { registerCredentials } from "@/lib/actions";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { useFormState } from "react-dom";
-import SubmitButton from "./submit-button";
+import SubmitButton from "../stocks/submit-button";
 
 export function RegisterForm() {
   const [state, formAction] = useFormState(registerCredentials, null);

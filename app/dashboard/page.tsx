@@ -11,6 +11,7 @@ import { getUsers } from "@/services/user.services";
 import { getPosts } from "@/services/post.services";
 import { Card, CardTitle, CardHeader, CardContent } from '@/components/ui/card';
 import { RecentUsers } from "@/components/dashboard/recent-users";
+import { Suspense } from "react";
 
 export default async function Page() {
   const session = await auth();
@@ -35,6 +36,7 @@ export default async function Page() {
             <div className="aspect-video rounded-xl bg-muted/50" />
           </div> */}
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+            <Suspense fallback={<div>Loading....</div>}>
               <StatsCard
                 title="Requests Features"
                 value="?"
@@ -50,6 +52,7 @@ export default async function Page() {
                 value={users.length.toString()}
                 description="+5% from last month"
               />
+              </Suspense>
             </div>
             <div className="mt-8 grid auto-rows-min gap-4 md:grid-cols-2">
               <Card>

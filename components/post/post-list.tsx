@@ -41,7 +41,6 @@ export default async function PostsList() {
                   <span>{post.user.name}</span>
                 </div>
               </div>
-
               <Link href={`/posts/${post.slug}`}>
                 <Button variant="secondary" className="w-full">
                   Read more <ArrowRightIcon />
