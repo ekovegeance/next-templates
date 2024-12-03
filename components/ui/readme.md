@@ -12,4 +12,4 @@ These components are usually used as building blocks for larger components.
 ## how to use
 Import components as needed, for example:
 ```tsx
-import Button from '../ui/Button';
+import Button from '../components/ui/Button';
