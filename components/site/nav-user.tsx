@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Link from "next/link";
-import { SignOut } from "@/lib/actions";
+import { SignOut } from "@/actions/auth.actions";
 
 
 

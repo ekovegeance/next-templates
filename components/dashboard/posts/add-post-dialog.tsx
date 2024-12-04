@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "../ui/textarea";
-import SubmitButton from "../stocks/submit-button";
-import { createPost } from "@/services/post.services";
+import { Textarea } from "../../ui/textarea";
+import SubmitButton from "../../stocks/submit-button";
+import { createPost } from "@/actions/post.actions";
 import { useToast } from "@/hooks/use-toast";
 
 export function AddPostDialog() {
@@ -23,12 +23,16 @@ export function AddPostDialog() {
   const { toast } = useToast();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    createPost(formData);
-    console.log("Form submitted");
-    setOpen(false);
-    toast({ title: "Post created successfully", description: "success" });
+    try {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      createPost(formData);
+      setOpen(false);
+      toast({ title: "Post created successfully", description: "success" });
+    } catch (error) {
+      console.error("Failed to create post:", error);
+      toast({ title: "Error", description: "You are not authorized to delete this post" });
+    }
   };
 
   return (

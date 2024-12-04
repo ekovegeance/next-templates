@@ -5,20 +5,15 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { auth } from "@/auth";
 import { StatsCard } from '../../components/dashboard/stats-card';
-import { getUsers } from "@/services/user.services";
-import { getPosts } from "@/services/post.services";
+import { getUsers } from "@/actions/user.actions";
+import { getPosts } from "@/actions/post.actions";
 import { Card, CardTitle, CardHeader, CardContent } from '@/components/ui/card';
 import { RecentUsers } from "@/components/dashboard/recent-users";
-import { Suspense } from "react";
 
 export default async function Page() {
-  const session = await auth();
   const users = await getUsers();
   const posts = await getPosts();
-
-  console.log("Log from server",session);
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -30,13 +25,7 @@ export default async function Page() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          {/* <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div> */}
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <Suspense fallback={<div>Loading....</div>}>
               <StatsCard
                 title="Requests Features"
                 value="?"
@@ -52,7 +41,6 @@ export default async function Page() {
                 value={users.length.toString()}
                 description="+5% from last month"
               />
-              </Suspense>
             </div>
             <div className="mt-8 grid auto-rows-min gap-4 md:grid-cols-2">
               <Card>

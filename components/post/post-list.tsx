@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { ArrowRightIcon, CalendarIcon } from "lucide-react";
 import Link from "next/link";
-import { getPosts } from "@/services/post.services";
+import { getPosts } from "@/actions/post.actions";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 

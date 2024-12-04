@@ -23,7 +23,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { SignOut } from "@/lib/actions";
+import { SignOut } from "@/actions/auth.actions";
 import { Button } from "../ui/button";
 import Link from 'next/link';
 

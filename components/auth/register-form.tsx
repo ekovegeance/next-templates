@@ -4,7 +4,7 @@ import Link from "next/link";
 import { TriangleAlert } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { registerCredentials } from "@/lib/actions";
+import { registerCredentials } from "@/actions/auth.actions";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { useFormState } from "react-dom";
 import SubmitButton from "../stocks/submit-button";

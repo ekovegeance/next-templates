@@ -7,7 +7,7 @@ import {
 import React from "react";
 import { Separator } from "@/components/ui/separator";
 import PostListTable from "@/components/dashboard/posts/post-list-table";
-import { AddPostDialog } from "@/components/post/add-post-dialog";
+import { AddPostDialog } from "@/components/dashboard/posts/add-post-dialog";
 
 export default function DashboardPostsPage() {
   return (
@@ -25,13 +25,6 @@ export default function DashboardPostsPage() {
             <AddPostDialog/>
         </div>
         <PostListTable />
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-        </div>
       </SidebarInset>
     </SidebarProvider>
   );

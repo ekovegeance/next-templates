@@ -9,7 +9,7 @@ import { revalidatePath } from 'next/cache';
 // Get all posts
 export const getPosts = async () => {
     const posts = await prisma.post.findMany({ include: { user: true } })
-    return posts
+    return posts;
 };
 
 

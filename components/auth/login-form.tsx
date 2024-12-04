@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { TriangleAlert } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
-import { loginCredentials } from "@/lib/actions";
+import { loginCredentials } from "@/actions/auth.actions";
 import { useFormState } from "react-dom";
 import { signIn } from "next-auth/react";
 import { Github } from "lucide-react";
