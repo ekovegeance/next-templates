@@ -1,9 +1,10 @@
-"use client";
+'use client'
 
 import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -11,9 +12,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import SubmitButton from "../../stocks/submit-button";
+import SubmitButton from "@/components/stocks/submit-button";
 import { createPost, updatePost } from "@/actions/post.actions";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from 'sonner';
 
 export default function EditPostDialog({
   post,
@@ -24,13 +25,14 @@ export default function EditPostDialog({
   open: boolean;
   onOpenChange: (state: boolean) => void;
 }) {
+
+
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
     content: "",
   });
 
-  const { toast } = useToast();
 
   useEffect(() => {
     if (post) {
@@ -42,8 +44,8 @@ export default function EditPostDialog({
     }
   }, [post]);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
       const form = new FormData(event.currentTarget);
@@ -53,23 +55,22 @@ export default function EditPostDialog({
       } else {
         await createPost(form);
       }
-  
       onOpenChange(false);
-      toast({ title: "Post updated successfully", description: "success" });
-      
+      toast.success("Post updated successfully");
     } catch (error) {
-      console.error("Failed to create post:", error);
-      toast({ title: "Error", description: "You are not authorized to delete this post", variant: "destructive"});
-      
+      console.error(":", error);
+      toast.error("Failed to update post")
     }
-   
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{post ? "Edit Post" : "Add New Post"}</DialogTitle>
+          <DialogTitle>{ "Edit Post" }</DialogTitle>
+          <DialogDescription>
+          Fill in the details for the post. Click save when done.
+          </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">

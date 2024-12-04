@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,29 +19,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Eye, MoreHorizontal, Pencil, Trash } from "lucide-react";
-import { getPosts, deletePost } from "@/actions/post.actions";
+import { deletePost } from "@/actions/post.actions";
 import Link from "next/link";
 import type { Post, User } from "@prisma/client";
 import EditPostDialog from "./edit-post-dialog";
 
-export default function PostListTable() {
-  const [posts, setPosts] = useState<(Post & { user: User })[]>([]);
+export default function PostListTable({
+  posts,
+}: {
+  posts: (Post & { user: User })[];
+}) {
+  // const [posts, setPosts] = useState<(Post & { user: User })[]>([]);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState<
     { id: string; title: string; slug: string; content: string } | undefined
   >();
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const fetchedPosts = await getPosts();
-        setPosts(fetchedPosts);
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-      }
-    };
-    fetchPosts();
-  }, []);
 
   const handleEdit = (post: Post) => {
     setSelectedPost(post);
@@ -112,7 +104,7 @@ export default function PostListTable() {
         <EditPostDialog
           post={selectedPost}
           open={editDialogOpen}
-          onOpenChange={setEditDialogOpen} // Tutup dialog
+          onOpenChange={setEditDialogOpen}
         />
       )}
     </div>

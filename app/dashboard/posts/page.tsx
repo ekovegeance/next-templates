@@ -4,12 +4,15 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import React from "react";
+import React, { Suspense } from "react";
 import { Separator } from "@/components/ui/separator";
 import PostListTable from "@/components/dashboard/posts/post-list-table";
 import { AddPostDialog } from "@/components/dashboard/posts/add-post-dialog";
+import { getPosts } from "@/actions/post.actions";
 
-export default function DashboardPostsPage() {
+export default async function DashboardPostsPage() {
+  const posts = await getPosts();
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -22,9 +25,11 @@ export default function DashboardPostsPage() {
         </header>
         <div className="flex justify-between mx-4">
           <h1 className="text-xl font-semibold">Posts</h1>
-            <AddPostDialog/>
+          <AddPostDialog />
         </div>
-        <PostListTable />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PostListTable posts={posts} />
+        </Suspense>
       </SidebarInset>
     </SidebarProvider>
   );

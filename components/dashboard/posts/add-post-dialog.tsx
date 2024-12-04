@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -16,11 +16,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "../../ui/textarea";
 import SubmitButton from "../../stocks/submit-button";
 import { createPost } from "@/actions/post.actions";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from 'sonner';
 
 export function AddPostDialog() {
   const [open, setOpen] = useState(false);
-  const { toast } = useToast();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -28,10 +27,10 @@ export function AddPostDialog() {
       const formData = new FormData(event.currentTarget);
       createPost(formData);
       setOpen(false);
-      toast({ title: "Post created successfully", description: "success" });
+      toast.success("Post created successfully");
     } catch (error) {
       console.error("Failed to create post:", error);
-      toast({ title: "Error", description: "You are not authorized to delete this post" });
+      toast.error("Failed to create post");
     }
   };
 
