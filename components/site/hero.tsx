@@ -12,31 +12,31 @@ export default function Hero() {
         </h1>
         <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
           This modern Full Stack{" "}
-          <Link href="https://nextjs.org/docs" className=" text-zinc-900">
+          <Link href="https://nextjs.org/docs" className=" text-zinc-900 font-semibold">
             Next.js
           </Link>{" "}
           solution is open-source and reusable, enabling developers to build web
           applications quickly and efficiently with{" "}
           <Link
             href="https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql"
-            className=" text-indigo-700"
+            className=" text-indigo-700 font-semibold"
           >
             Prisma ORM - PostgreSQL
           </Link>
           ,{" "}
           <Link
             href="https://authjs.dev/getting-started"
-            className="text-violet-700"
+            className="text-violet-700 font-semibold"
           >
             Auth.js
           </Link>
           , and a responsive{" "}
-          <Link href="https://ui.shadcn.com/" className="text-zinc-900">
-            Shadcn/UI
+          <Link href="https://ui.shadcn.com/" className="text-zinc-900 font-semibold">
+            Shadcn/UI {" "}
           </Link>
           interface.
         </p>
-        <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+        <p className="max-w-[750px] text-md text-muted-foreground">
           Powered by <Author />
         </p>
       </div>
