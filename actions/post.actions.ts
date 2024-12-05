@@ -19,6 +19,29 @@ export const getPosts = async () => {
 };
 
 
+// Get user posts
+export const getUserPosts = async () => {
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    throw new Error('Unauthorized');
+  }
+
+  try {
+    const posts = await prisma.post.findMany({
+      where: { userId: session.user.id },
+      include: { user: true },
+      orderBy: { createdAt: 'desc' }
+    });
+
+    return posts;
+
+  } catch (error) {
+    throw new Error('Failed to fetch posts');
+  }
+};
+
+
 // Get post by slug
 export async function getPostBySlug(slug: string) {
 

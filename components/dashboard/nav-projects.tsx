@@ -1,4 +1,4 @@
-"use client"
+'use cleint'
 
 import {
   Folder,

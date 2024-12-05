@@ -1,6 +1,5 @@
-"use client";
+'use client'
 import { useSession } from "next-auth/react";
-import { Author } from "@/components/site/author";
 import {
   Card,
   CardHeader,
@@ -9,17 +8,18 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import Link from "next/link";
+import Hero from "@/components/site/hero";
+import Features from "@/components/site/features";
+import CTA from "@/components/site/cta";
+import { BackgroundGrid } from "@/components/site/background-grid";
 
 export default function Home() {
   const { data: session, status } = useSession();
   return (
     <>
       <main>
-        <h1 className="text-3xl font-bold text-zinc-900">Fullstack Next</h1>
-        <p className="text-lg text-zinc-500">CRUD Nextjs Apps Templates</p>
-        <p className=" text-zinc-500">
-          Powered by <Author />
-        </p>
+        <BackgroundGrid/>
+        <Hero/>
         <Card>
           <CardHeader>
             <CardTitle>
@@ -41,6 +41,8 @@ export default function Home() {
             <p className=" text-green-500">{JSON.stringify(status)}</p>
           </CardContent>
         </Card>
+        <Features/>
+        <CTA/>
       </main>
     </>
   );

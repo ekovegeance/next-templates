@@ -12,7 +12,7 @@ export function Author() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">@ekovegeance</Button>
+        <Button className="text-lg text-zinc-900 sm:text-xl" variant="link">@ekovegeance</Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">

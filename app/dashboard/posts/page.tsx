@@ -8,10 +8,11 @@ import React, { Suspense } from "react";
 import { Separator } from "@/components/ui/separator";
 import PostListTable from "@/components/dashboard/posts/post-list-table";
 import { AddPostDialog } from "@/components/dashboard/posts/add-post-dialog";
-import { getPosts } from "@/actions/post.actions";
+import { getUserPosts } from "@/actions/post.actions";
+
 
 export default async function DashboardPostsPage() {
-  const posts = await getPosts();
+  const posts = await getUserPosts();
 
   return (
     <SidebarProvider>

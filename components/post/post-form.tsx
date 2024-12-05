@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
