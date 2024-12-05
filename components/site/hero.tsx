@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Author } from "@/components/site/author";
-import { Triangle } from "lucide-react";
+import { FileCode2, Triangle } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -32,7 +32,7 @@ export default function Hero() {
           </Link>
           , and a responsive{" "}
           <Link href="https://ui.shadcn.com/" className="text-zinc-900">
-            Shadcn/UI 
+            Shadcn/UI
           </Link>
           interface.
         </p>
@@ -40,18 +40,23 @@ export default function Hero() {
           Powered by <Author />
         </p>
       </div>
-      <div className="flex gap-4">
-        <Button size="lg" asChild>
-          <Link href="https://github.com/ekovegeance/Fullstack-Nextjs-Templates">
-            Get Started
-          </Link>
-        </Button>
-        <Button size="lg" variant="secondary">
-          <Triangle />
-          <Link href="https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fekovegeance%2FFullstack-Nextjs-Templates">
-            Deploy with Vercel
-          </Link>
-        </Button>
+      <div className="grid grid-cols md:grid-cols-2 gap-4">
+        <div>
+          <Button size="lg">
+            <FileCode2 />
+            <Link href="https://github.com/ekovegeance/Fullstack-Nextjs-Templates">
+              Get Started
+            </Link>
+          </Button>
+        </div>
+        <div>
+          <Button size="lg" variant="secondary">
+            <Triangle />
+            <Link href="https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fekovegeance%2FFullstack-Nextjs-Templates">
+              Deploy Now
+            </Link>
+          </Button>
+        </div>
       </div>
     </section>
   );

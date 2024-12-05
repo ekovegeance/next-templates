@@ -16,7 +16,7 @@ type UserWithPosts = User & { posts: Post[] };
 
 export default function ProfilePage({ user }: { user: UserWithPosts }) {
   return (
-    <div className="min-h-screen rounded-lg">
+    <div className="min-h-screen rounded-lg md:border">
       <div className="relative h-64 bg-gray-300">
         <Image
           src="/images/placeholder.svg"
@@ -79,7 +79,7 @@ export default function ProfilePage({ user }: { user: UserWithPosts }) {
             </Card>
           </div>
           <div className="lg:col-span-2">
-            <Card>
+            <Card className=" md:border-b-0 shadow-none md:rounded-b-none">
               <CardHeader>
                 {/* <Input placeholder="What's on your mind?" />
                 <div className="mt-4 flex justify-end">
