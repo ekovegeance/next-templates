@@ -8,16 +8,15 @@ import {
   FileUser,
   Heart,
   MessageCircle,
-  MoreHorizontal,
-  Share2,
 } from "lucide-react";
 import { User, Post } from "@prisma/client";
+import Link from "next/link";
 
 type UserWithPosts = User & { posts: Post[] };
 
 export default function ProfilePage({ user }: { user: UserWithPosts }) {
   return (
-    <div className="min-h-screen border rounded-lg">
+    <div className="min-h-screen rounded-lg">
       <div className="relative h-64 bg-gray-300">
         <Image
           src="/images/placeholder.svg"
@@ -95,7 +94,8 @@ export default function ProfilePage({ user }: { user: UserWithPosts }) {
                   </TabsList>
                   <TabsContent value="posts" className="space-y-4">
                     {user.posts.map((post) => (
-                      <Card key={post.id}>
+                      <Card key={post.id} className="hover:bg-zinc-50">
+                        <Link key={post.id} href={`/posts/${post.slug}`}>
                         <CardHeader>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-3">
@@ -117,13 +117,10 @@ export default function ProfilePage({ user }: { user: UserWithPosts }) {
                                 </p>
                               </div>
                             </div>
-                            <Button variant="ghost" size="icon">
-                              <MoreHorizontal className="h-4 w-4" />
-                            </Button>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-sm">{post.content}</p>
+                          <p className="text-sm truncate">{post.content}</p>
                           <div className="mt-4 flex space-x-4">
                             <Button variant="ghost" size="sm">
                               <Heart className="mr-2 h-4 w-4" />
@@ -133,12 +130,9 @@ export default function ProfilePage({ user }: { user: UserWithPosts }) {
                               <MessageCircle className="mr-2 h-4 w-4" />
                               Comment
                             </Button>
-                            <Button variant="ghost" size="sm">
-                              <Share2 className="mr-2 h-4 w-4" />
-                              Share
-                            </Button>
                           </div>
                         </CardContent>
+                        </Link>
                       </Card>
                     ))}
                   </TabsContent>

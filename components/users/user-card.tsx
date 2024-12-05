@@ -19,7 +19,7 @@ export default function UserCard({
   image,
 }: UserCardProps) {
   return (
-    <Card className="w-full">
+    <Card className="w-full hover:bg-zinc-50">
       <CardHeader className="flex flex-row items-center gap-4">
         <Avatar className="h-14 w-14">
           <AvatarImage alt={name} src={image} />

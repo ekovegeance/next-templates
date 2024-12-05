@@ -6,7 +6,7 @@ export default function CTA() {
   return (
     <section className="container py-12 md:py-24 lg:py-32">
       <div className="mx-auto max-w-[58rem] text-center">
-        <h2 className="text-3xl font-bold leading-[1.1] tracking-tighter sm:text-3xl md:text-6xl">
+        <h2 className="text-2xl font-bold leading-[1.1] sm:text-3xl md:text-6xl">
           Start Building with Our Full Stack Solution
         </h2>
         <p className="mt-4 text-lg text-muted-foreground sm:text-xl">

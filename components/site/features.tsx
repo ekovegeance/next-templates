@@ -24,7 +24,7 @@ const features = [
     icon: <UserRoundCog className="h-10 w-10" />,
     title: "User & Post Management",
     description:
-      "Handle users and manage content with complete features for adding, editing, and deleting data efficiently.Handle users and manage content with complete features for adding, editing, and deleting data efficiently.",
+      "Handle users and manage content with complete features for adding, editing, and deleting data efficiently.",
   },
 ];
 

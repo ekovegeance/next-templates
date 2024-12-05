@@ -7,25 +7,34 @@ export default function Hero() {
   return (
     <section className="container flex flex-col items-center gap-4 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-center gap-2 text-center">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-600">
+        <h1 className="text-2xl font-extrabold md:text-5xl lg:text-6xl lg:leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-600">
           Fullstack Next.js Templates
         </h1>
         <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-          This project is a modern Full Stack solution based on{" "}
+          This modern Full Stack{" "}
           <Link href="https://nextjs.org/docs" className=" text-zinc-900">
-            Next.js,
-          </Link>
-          designed to be open-source and reusable, making it easier for
-          developers to build web applications quickly and efficiently. Equipped
-          with the latest technologies like{" "}
+            Next.js
+          </Link>{" "}
+          solution is open-source and reusable, enabling developers to build web
+          applications quickly and efficiently with{" "}
           <Link
             href="https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql"
             className=" text-indigo-700"
           >
             Prisma ORM - PostgreSQL
           </Link>
-          , and <Link href="https://authjs.dev/getting-started" className="text-violet-700">Auth.js</Link>, it also features an aesthetically pleasing and
-          responsive interface powered by <Link href="https://ui.shadcn.com/" className="text-zinc-900"> Shadcn/UI.</Link>
+          ,{" "}
+          <Link
+            href="https://authjs.dev/getting-started"
+            className="text-violet-700"
+          >
+            Auth.js
+          </Link>
+          , and a responsive{" "}
+          <Link href="https://ui.shadcn.com/" className="text-zinc-900">
+            Shadcn/UI 
+          </Link>
+          interface.
         </p>
         <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
           Powered by <Author />
