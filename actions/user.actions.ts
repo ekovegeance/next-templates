@@ -30,8 +30,9 @@ export const getUserById = async (id: string) => {
         return await prisma.user.findUnique({
             where: { id },
             include: {
-                posts: true,
+                posts: {orderBy: {createdAt: 'desc'}},
             },
+            
         });
     } catch (error) {
         throw new Error('Failed to fetch user');

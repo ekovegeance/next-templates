@@ -72,7 +72,8 @@ export async function createPost(fromData: FormData) {
 
     }
   })
-  redirect('/dashboard/posts/');
+  // redirect('/dashboard/posts/');
+  revalidatePath('dashboard/posts');
 
 }
 
