@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="container flex flex-col items-center gap-4 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-center gap-2 text-center">
-        <h1 className="text-4xl/[1.1] font-extrabold md:text-5xl lg:text-6xl lg:leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-600">
+        <h1 className="text-5xl/[1.1] font-extrabold md:text-5xl lg:text-6xl lg:leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-600">
           Fullstack Next.js Templates
         </h1>
         <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
