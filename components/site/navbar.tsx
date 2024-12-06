@@ -96,6 +96,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setIsMenuOpen(false)} // Tambahkan ini
                 className={clsx(
                   "block pl-3 pr-4 py-2 text-base font-medium",
                   pathname === link.href
@@ -106,30 +107,6 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            {/* <Link
-              href="/"
-              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-900"
-            >
-              Home
-            </Link>
-            <Link
-              href="/users"
-              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Users
-            </Link>
-            <Link
-              href="/crud"
-              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              CRUD
-            </Link>
-            <Link
-              href="/contact"
-              className="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Contact
-            </Link> */}
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200">
             <Suspense fallback={<p>Loading...</p>}>
@@ -149,7 +126,9 @@ export function Navbar() {
                   </div>
                 ) : (
                   <>
-                    <Link href="/login">
+                    <Link href="/login" onClick={() => setIsMenuOpen(false)}>
+                      {" "}
+                      {/* Tambahkan ini */}
                       <Button
                         variant="outline"
                         className="mr-2 w-full justify-center"
@@ -157,7 +136,9 @@ export function Navbar() {
                         Sign In
                       </Button>
                     </Link>
-                    <Link href="/register">
+                    <Link href="/register" onClick={() => setIsMenuOpen(false)}>
+                      {" "}
+                      {/* Tambahkan ini */}
                       <Button className="w-full justify-center">Sign Up</Button>
                     </Link>
                   </>
