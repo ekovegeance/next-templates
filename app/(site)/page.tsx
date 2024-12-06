@@ -22,13 +22,15 @@ export default function Home() {
       <main>
         <BackgroundGrid />
         <Link href="https://github.com/ekovegeance/Fullstack-Nextjs-Templates/discussions/5">
-        <Alert className="mx-auto w-fit mt-4">
-          <Sparkle className="h4 w-4" />
-          <AlertTitle className="font-semibold text-orange-600">Got an idea?</AlertTitle>
-          <AlertDescription>
-            Let us know! Submit your feature requests
-          </AlertDescription>
-        </Alert>
+          <Alert className="mx-auto w-fit mt-4">
+            <Sparkle className="h4 w-4" />
+            <AlertTitle className="font-semibold text-orange-600">
+              Got an idea?
+            </AlertTitle>
+            <AlertDescription>
+              Let us know! Submit your feature requests
+            </AlertDescription>
+          </Alert>
         </Link>
         <Hero />
         <Card>

@@ -29,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-teal-100 selection:text-teal-900`}
       >
-        <SessionProvider>
-        {children}
+        <SessionProvider>{children}
         </SessionProvider>
+        
       </body>
     </html>
   );
