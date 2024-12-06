@@ -1,8 +1,9 @@
 import {
-  BadgeCheck,
+  UserCog,
   ChevronsUpDown,
   LayoutDashboard,
   LogOut,
+  User,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
@@ -17,12 +18,10 @@ import {
 import Link from "next/link";
 import { SignOut } from "@/actions/auth.actions";
 
-
-
 export function NavUser({
   user,
 }: {
-  user: { name?: string; email?: string; image?: string };
+  user: { id?: string; name?: string; email?: string; image?: string };
 }) {
   const handlesignOut = async () => {
     await SignOut();
@@ -71,9 +70,15 @@ export function NavUser({
               <LayoutDashboard />
               <Link href="/dashboard">Dashboard</Link>
             </DropdownMenuItem>
+            <DropdownMenuItem asChild className=" cursor-pointer">
+              <Link href={`users/${user.id}`}>
+                <User />
+                Profile
+              </Link>
+            </DropdownMenuItem>
             <DropdownMenuItem>
-              <BadgeCheck />
-              <Link href="/account">Account</Link>
+              <UserCog />
+              <Link href="/dashboard/account">Account</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

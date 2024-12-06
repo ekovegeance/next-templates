@@ -139,6 +139,7 @@ export function Navbar() {
                     <NavUser
                       user={
                         session.user as {
+                          id: string;
                           name: string;
                           email: string;
                           image: string;

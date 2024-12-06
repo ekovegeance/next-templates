@@ -6,12 +6,12 @@ import {
   Bot,
   Command,
   LifeBuoy,
-  Map,
   PieChart,
   Send,
   Settings2,
   SquareTerminal,
   StickyNote,
+  UserCog,
 } from "lucide-react"
 
 // import { NavMain } from "@/components/dashboard/nav-main"
@@ -148,9 +148,9 @@ const data = {
       icon: PieChart,
     },
     {
-      name: "Travel",
-      url: "#",
-      icon: Map,
+      name: "Account Settings",
+      url: "/dashboard/account",
+      icon: UserCog,
     },
   ],
 }

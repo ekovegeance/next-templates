@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useSession } from "next-auth/react";
 import {
   Card,
@@ -12,14 +12,25 @@ import Hero from "@/components/site/hero";
 import Features from "@/components/site/features";
 import CTA from "@/components/site/cta";
 import { BackgroundGrid } from "@/components/site/background-grid";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Sparkle } from "lucide-react";
 
 export default function Home() {
   const { data: session, status } = useSession();
   return (
     <>
       <main>
-        <BackgroundGrid/>
-        <Hero/>
+        <BackgroundGrid />
+        <Link href="https://github.com/ekovegeance/Fullstack-Nextjs-Templates/discussions/5">
+        <Alert className="mx-auto w-fit mt-4">
+          <Sparkle className="h4 w-4" />
+          <AlertTitle className="font-semibold text-orange-600">Got an idea?</AlertTitle>
+          <AlertDescription>
+            Let us know! Submit your feature requests
+          </AlertDescription>
+        </Alert>
+        </Link>
+        <Hero />
         <Card>
           <CardHeader>
             <CardTitle>
@@ -41,8 +52,8 @@ export default function Home() {
             <p className=" text-green-500">{JSON.stringify(status)}</p>
           </CardContent>
         </Card>
-        <Features/>
-        <CTA/>
+        <Features />
+        <CTA />
       </main>
     </>
   );
