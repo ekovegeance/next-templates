@@ -187,7 +187,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={session?.user as {name: string; email: string; image: string; }} />
+        <NavUser user={session?.user as {id: string, name: string; email: string; image: string; }} />
       </SidebarFooter>
     </Sidebar>
   )
