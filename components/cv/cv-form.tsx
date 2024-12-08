@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -27,38 +27,17 @@ export default function CVForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8 max-w-2xl mx-auto p-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <Card>
         <CardHeader>
           <CardTitle>Curriculum Vitae</CardTitle>
           <CardDescription>Fill in your personal and professional information</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Personal Information */}
+          {/* Professional Summary */}
           <div className="space-y-2">
-            <h3 className="text-lg font-semibold">Personal Information</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">First Name</Label>
-                <Input id="firstName" placeholder="John" required />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name</Label>
-                <Input id="lastName" placeholder="Doe" required />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="johndoe@example.com" required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="phone">Phone</Label>
-              <Input id="phone" type="tel" placeholder="+1 234 567 890" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="address">Address</Label>
-              <Textarea id="address" placeholder="123 Main St, City, Country" />
-            </div>
+            <h3 className="text-lg font-semibold">Professional Summary</h3>
+            <Textarea placeholder="Briefly describe your professional background and career objectives" />
           </div>
 
           {/* Education */}
@@ -159,10 +138,10 @@ export default function CVForm() {
             </div>
           </div>
         </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full">Submit CV</Button>
-        </CardFooter>
       </Card>
+          <div className="flex justify-end">
+          <Button type="submit">Submit CV</Button>
+          </div>
     </form>
   )
 }

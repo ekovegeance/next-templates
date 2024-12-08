@@ -23,8 +23,8 @@ import { Github } from "lucide-react";
 import SubmitButton from "../stocks/submit-button";
 
 export function LoginForm() {
-  const searchParams = useSearchParams(); // Hook untuk mendapatkan query string
-  const error = searchParams?.get("error"); // Mendapatkan nilai dari query parameter `error`
+  const searchParams = useSearchParams(); // Hook for getting the search parameters
+  const error = searchParams?.get("error"); // Get the error from the search parameters
 
   const [state, formAction] = useFormState(loginCredentials, null);
 

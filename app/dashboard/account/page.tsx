@@ -6,7 +6,9 @@ import {
 } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
 import Account from "@/components/dashboard/account";
-import { Alert, AlertDescription, } from "@/components/ui/alert";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CVForm from "@/components/cv/cv-form";
 
 export default async function DashboardAccountPage() {
   return (
@@ -20,10 +22,21 @@ export default async function DashboardAccountPage() {
           </div>
         </header>
         <div className="p-4">
-          <Alert variant="destructive" className="min-w-fit">
+          <Alert variant="destructive" className="min-w-fit mb-4">
             <AlertDescription>Under Contructions</AlertDescription>
           </Alert>
-          <Account />
+          <Tabs defaultValue="account">
+            <TabsList>
+              <TabsTrigger value="account">Account</TabsTrigger>
+              <TabsTrigger value="cv">Curriculum vitae</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">
+              <Account />
+            </TabsContent>
+            <TabsContent value="cv">
+              <CVForm/>
+            </TabsContent>
+          </Tabs>
         </div>
       </SidebarInset>
     </SidebarProvider>
