@@ -6,7 +6,8 @@ import { JWT } from "next-auth/jwt";
 declare module "next-auth" {
     interface User {
         id: string;
-        role: string; // Pastikan ini bertipe string, bukan string | null
+        username: string;
+        role: string; 
         image: string;
     }
 
@@ -18,7 +19,8 @@ declare module "next-auth" {
 declare module "next-auth/jwt" {
     interface JWT {
         sub: string;
-        role: string; // Pastikan ini bertipe string
+        username: string;
+        role: string; 
         image: string;
     }
 }

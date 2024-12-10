@@ -18,10 +18,11 @@ import {
 import Link from "next/link";
 import { SignOut } from "@/actions/auth.actions";
 
+
 export function NavUser({
   user,
 }: {
-  user: { id?: string; name?: string; email?: string; image?: string };
+  user: { id?: string; username?: string, name?: string; email?: string; image?: string };
 }) {
   const handlesignOut = async () => {
     await SignOut();
@@ -71,7 +72,7 @@ export function NavUser({
               <Link href="/dashboard">Dashboard</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className=" cursor-pointer">
-              <Link href={`users/${user.id}`}>
+              <Link href={`users/${user.username}`}>
                 <User />
                 Profile
               </Link>

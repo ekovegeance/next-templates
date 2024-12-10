@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import * as React from "react";
 import Link from "next/link";
@@ -21,6 +21,7 @@ const navLinks = [
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { data: session, status } = useSession();
+  console.log(session?.user);
 
   const pathname = usePathname();
 
@@ -96,7 +97,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setIsMenuOpen(false)} // Tambahkan ini
+                onClick={() => setIsMenuOpen(false)} 
                 className={clsx(
                   "block pl-3 pr-4 py-2 text-base font-medium",
                   pathname === link.href

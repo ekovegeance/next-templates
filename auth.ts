@@ -36,7 +36,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 if (!passwordMatch) {
                     return null;
                 }
-                return { ...user, role: user.role || 'user', };
+                return { ...user, role: user.role || 'user', username: user.username || 'anonymous' };
             },
 
         }),
@@ -53,17 +53,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             if (isLoggedIn && nextUrl.pathname.startsWith("/login")) {
                 return Response.redirect(new URL("/dashboard", nextUrl));
             }
-            // if (!isLoggedIn && nextUrl.pathname.startsWith("/register")) {
-            //     return Response.redirect(new URL("/", nextUrl));
-            // }
             return true;
         },
         jwt({ token, user }) {
-            if (user) token.role = user.role;
+            if (user) { 
+                token.role = user.role
+                token.username = user.username
+             }
             return token;
         },
         session({ session, token }) {
             session.user.id = token.sub;
+            session.user.username = token.username;
             session.user.role = token.role;
             return session;
 

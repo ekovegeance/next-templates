@@ -33,6 +33,7 @@ export function NavUser({
 }: {
   user: {
     id: string;
+    username: string;
     name: string;
     email: string;
     image: string;
@@ -88,7 +89,7 @@ export function NavUser({
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <User />
-                <Link href={`/users/${user?.id}`}>Profile</Link>
+                <Link href={`/users/${user?.username}`}>Profile</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
               <BadgeCheck />
