@@ -1,10 +1,11 @@
-
 import PostsList from '@/components/post/post-list'
-import React from 'react'
+import { getPosts } from '@/actions/post.actions'
 
-export default function PostsPage() {
+export default async function PostsPage() {
+  const posts = await getPosts()
+
   return (
     <div>
-      <PostsList/></div>
+      <PostsList posts={posts}/></div>
   )
 }

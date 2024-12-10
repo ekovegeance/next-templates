@@ -12,10 +12,6 @@ import SubmitButton from "../stocks/submit-button";
 export function RegisterForm() {
   const [state, formAction] = useFormState(registerCredentials, null);
 
-
-  console.log("State:", state); // Debugging
-  console.log("Form Action:", formAction); // Debugging
-
   return (
       <div className="flex items-center justify-center px-8 py-12 md:px-12">
         <div className="mx-auto w-full max-w-sm space-y-8">

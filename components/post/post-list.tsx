@@ -9,12 +9,17 @@ import {
 } from "@/components/ui/card";
 import { ArrowRightIcon, CalendarIcon } from "lucide-react";
 import Link from "next/link";
-import { getPosts } from "@/actions/post.actions";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import type { Post, User } from "@prisma/client";
 
-export default async function PostsList() {
-  const posts = await getPosts();
+type PostsListProps = {
+  posts: (Post & { user: User })[];
+};
+
+
+
+export default async function PostsList({posts}: PostsListProps) {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-8">All Post ({posts.length})</h1>

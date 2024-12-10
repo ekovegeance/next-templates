@@ -12,6 +12,7 @@ export const getUsers = async (): Promise<User[]> => {
         const users = await prisma.user.findMany({
             select: {
                 id: true,
+                username: true,
                 name: true,
                 email: true,
                 image: true,
@@ -29,6 +30,22 @@ export const getUserById = async (id: string) => {
     try {
         return await prisma.user.findUnique({
             where: { id },
+            include: {
+                posts: {orderBy: {createdAt: 'desc'}},
+            },
+            
+        });
+    } catch (error) {
+        throw new Error('Failed to fetch user');
+    }
+
+}
+
+// get user by username
+export const getUserByUsername = async (username: string) => {
+    try {
+        return await prisma.user.findUnique({
+            where: { username },
             include: {
                 posts: {orderBy: {createdAt: 'desc'}},
             },

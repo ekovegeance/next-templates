@@ -40,7 +40,7 @@ export default async function ProfilePage({ user }: { user: UserWithPosts }) {
               <h1 className="text-2xl font-bold text-gray-900 truncate">
                 {user?.name}
               </h1>
-              <p className="text-sm text-gray-500">{user?.id}</p>
+              <p className="text-sm text-gray-500">{user?.username}</p>
             </div>
             <div className="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
               <Button>
