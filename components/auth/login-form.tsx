@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -18,9 +17,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Label } from "@/components/ui/label";
 import { loginCredentials } from "@/actions/auth.actions";
 import { useFormState } from "react-dom";
-import { signIn } from "next-auth/react";
-import { Github } from "lucide-react";
 import SubmitButton from "../stocks/submit-button";
+import { LoginWithGithub, } from "../stocks/button-oauth";
 
 export function LoginForm() {
   const searchParams = useSearchParams(); // Hook for getting the search parameters
@@ -28,18 +26,17 @@ export function LoginForm() {
 
   const [state, formAction] = useFormState(loginCredentials, null);
 
-
   return (
     <div>
-      <form action={formAction}>
-        <Card className="mx-auto max-w-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl">Login</CardTitle>
-            <CardDescription>
-              Enter your email below to login to your account
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+      <Card className="mx-auto max-w-sm">
+        <CardHeader>
+          <CardTitle className="text-2xl">Login</CardTitle>
+          <CardDescription>
+            Enter your email below to login to your account
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form action={formAction}>
             {error === "OAuthAccountNotLinked" ? (
               <Alert variant="destructive" className="my-3">
                 <TriangleAlert />
@@ -84,41 +81,37 @@ export function LoginForm() {
                   <Label className="text-red-500">{state.error.password}</Label>
                 )}
               </div>
-              <SubmitButton
-                submitting="Login..."
-                submit="Login"
-              />
-              <Button
-                variant="outline"
-                className="w-full"
-                onClick={() => signIn("github")}
-              >
-                Login with GitHub
-                <Github />
-              </Button>
+              <SubmitButton submitting="Login..." submit="Login" />
             </div>
-            <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <Link href="/register" className="underline">
-                Sign up
-              </Link>
-            </div>
-          </CardContent>
-          <CardFooter>
-            <p className="text-center text-sm text-muted-foreground">
-              By continuing, you agree to our{" "}
-              <Link href="#" className="underline">
-                User Agreement
-              </Link>{" "}
-              and{" "}
-              <Link href="#" className="underline">
-                Privacy Policy
-              </Link>
-              .
-            </p>
-          </CardFooter>
-        </Card>
-      </form>
+          </form>
+          <div className="grid gap-2 mt-4">
+          <p className="text-center text-sm text-muted-foreground mx-2">
+            Or login with
+          </p>
+            <LoginWithGithub />
+            {/* <LoginWithGoogle /> */}
+          </div>
+          <div className="mt-4 text-center text-sm">
+            Don&apos;t have an account?{" "}
+            <Link href="/register" className="underline">
+              Sign up
+            </Link>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <p className="text-center text-sm text-muted-foreground">
+            By continuing, you agree to our{" "}
+            <Link href="#" className="underline">
+              User Agreement
+            </Link>{" "}
+            and{" "}
+            <Link href="#" className="underline">
+              Privacy Policy
+            </Link>
+            .
+          </p>
+        </CardFooter>
+      </Card>
     </div>
   );
 }
