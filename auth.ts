@@ -5,12 +5,15 @@ import Credentials from "next-auth/providers/credentials"
 import { loginSchema } from "@/lib/zod"
 import { compareSync } from "bcrypt-ts"
 import GitHub from "next-auth/providers/github"
+import Google from "next-auth/providers/google"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
     session: { strategy: "jwt" },
     pages: { signIn: "/login" },
-    providers: [GitHub,
+    providers: [
+        GitHub,
+        Google,
         Credentials({
             credentials: {
                 email: {},
@@ -56,10 +59,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return true;
         },
         jwt({ token, user }) {
-            if (user) { 
+            if (user) {
                 token.role = user.role
                 token.username = user.username
-             }
+            }
             return token;
         },
         session({ session, token }) {

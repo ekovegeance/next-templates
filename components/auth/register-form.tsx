@@ -8,20 +8,21 @@ import { registerCredentials } from "@/actions/auth.actions";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { useFormState } from "react-dom";
 import SubmitButton from "../stocks/submit-button";
+import { LoginWithGithub, LoginWithGoogle } from "../stocks/button-oauth";
 
 export function RegisterForm() {
   const [state, formAction] = useFormState(registerCredentials, null);
 
   return (
-      <div className="flex items-center justify-center px-8 py-12 md:px-12">
-        <div className="mx-auto w-full max-w-sm space-y-8">
-          <div className="space-y-2 text-center">
-            <h1 className="text-3xl font-bold">Create an account</h1>
-            <p className="text-gray-500 dark:text-gray-400">
-              Enter your information to get started
-            </p>
-          </div>
-          <form action={formAction}>
+    <div className="flex items-center justify-center px-8 py-12 md:px-12">
+      <div className="mx-auto w-full max-w-sm space-y-8">
+        <div className="space-y-2 text-center">
+          <h1 className="text-3xl font-bold">Create an account</h1>
+          <p className="text-gray-500 dark:text-gray-400">
+            Enter your information to get started
+          </p>
+        </div>
+        <form action={formAction}>
           <div className="space-y-6">
             {state?.message && (
               <Alert variant="destructive" className="my-3">
@@ -75,18 +76,22 @@ export function RegisterForm() {
                   </Label>
                 )}
               </div>
-              <SubmitButton submitting={"Registering..."} submit={"Register"}/>
-            </div>
-            <div className="mt-4 text-center text-sm">
-              Have an account?{" "}
-              <Link href="login" className="underline">
-                Login
-              </Link>
+              <SubmitButton submitting={"Registering..."} submit={"Register"} />
             </div>
           </div>
-          </form>
+        </form>
+        <div className="grid gap-2">
+          <p className="text-center text-sm text-muted-foreground">Or Login With</p>
+          <LoginWithGithub/>
+          <LoginWithGoogle/>
+        </div>
+        <div className="mt-4 text-center text-sm">
+          Have an account?{" "}
+          <Link href="login" className="underline">
+            Login
+          </Link>
         </div>
       </div>
-    
+    </div>
   );
 }

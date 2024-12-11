@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -18,7 +18,7 @@ import { Label } from "@/components/ui/label";
 import { loginCredentials } from "@/actions/auth.actions";
 import { useFormState } from "react-dom";
 import SubmitButton from "../stocks/submit-button";
-import { LoginWithGithub, } from "../stocks/button-oauth";
+import { LoginWithGithub, LoginWithGoogle, } from "../stocks/button-oauth";
 
 export function LoginForm() {
   const searchParams = useSearchParams(); // Hook for getting the search parameters
@@ -89,7 +89,7 @@ export function LoginForm() {
             Or login with
           </p>
             <LoginWithGithub />
-            {/* <LoginWithGoogle /> */}
+            <LoginWithGoogle />
           </div>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
