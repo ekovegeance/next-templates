@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/card";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 import SubmitButton from "../stocks/submit-button";
-
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 
 export default function ForgotPassword() {
   const [state, formAction] = useFormState(forgotPassword, null);
@@ -25,6 +25,13 @@ export default function ForgotPassword() {
     <div className="flex items-center justify-center min-h-screen white">
       <Card className="w-full max-w-md">
         <CardHeader>
+          <Alert variant="destructive" className="my-2">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle className=" font-semibold">Under Construction</AlertTitle>
+            <AlertDescription>
+              This feature is not yet available.
+            </AlertDescription>
+          </Alert>
           <CardTitle>Forgot Password</CardTitle>
           <CardDescription>
             Enter your email to receive a password reset link.
