@@ -118,6 +118,7 @@ export function Navbar() {
                       user={
                         session.user as {
                           id: string;
+                          username: string;
                           name: string;
                           email: string;
                           image: string;
@@ -129,7 +130,6 @@ export function Navbar() {
                   <>
                     <Link href="/login" onClick={() => setIsMenuOpen(false)}>
                       {" "}
-                      {/* Tambahkan ini */}
                       <Button
                         variant="outline"
                         className="mr-2 w-full justify-center"
@@ -139,8 +139,7 @@ export function Navbar() {
                     </Link>
                     <Link href="/register" onClick={() => setIsMenuOpen(false)}>
                       {" "}
-                      {/* Tambahkan ini */}
-                      <Button className="w-full justify-center">Sign Up</Button>
+                      <Button className="w-fÌull justify-center">Sign Up</Button>
                     </Link>
                   </>
                 )}
