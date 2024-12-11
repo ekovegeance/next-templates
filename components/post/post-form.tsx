@@ -1,14 +1,19 @@
-'use client'
+'use server'
 
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
-import {createPost} from "@/actions/post.actions";
-import SubmitButton from '../stocks/submit-button';
+import { createPost } from "@/actions/post.actions";
+import SubmitButton from "../stocks/submit-button";
 
-export default function PostForm() {
-  
+
+/**
+ * Example of a post form Server Side Rendering (SSR) component
+ * @returns 
+ */
+export default async function PostForm() {
+
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
@@ -28,7 +33,11 @@ export default function PostForm() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="slug">Slug</Label>
-            <Input id="slug" name="slug" placeholder="Enter tags and press Enter" />
+            <Input
+              id="slug"
+              name="slug"
+              placeholder="Enter tags and press Enter"
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="content">Content</Label>
@@ -41,7 +50,10 @@ export default function PostForm() {
             />
           </div>
           <div className="pt-4 flex justify-between">
-            <SubmitButton submitting={"Submit Post..."} submit={"Submit Post"}/>
+            <SubmitButton
+              submitting={"Submit Post..."}
+              submit={"Submit Post"}
+            />
           </div>
         </form>
       </CardContent>

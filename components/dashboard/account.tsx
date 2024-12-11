@@ -1,9 +1,5 @@
 'use client'
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,45 +8,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { toast } from "@/hooks/use-toast";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "../ui/textarea";
-import { profileSchema } from "@/lib/zod";
 
-
-type ProfileFormValues = z.infer<typeof profileSchema>;
-
-const defaultValues: Partial<ProfileFormValues> = {
-};
 
 export default function Account() {
-  const form = useForm<ProfileFormValues>({
-    resolver: zodResolver(profileSchema),
-    defaultValues,
-    mode: "onChange",
-  });
-
-  function onSubmit(data: ProfileFormValues) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-  }
 
   return (
     <div className="space-y-6">
@@ -86,8 +50,7 @@ export default function Account() {
           </div>
         </CardContent>
       </Card>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form className="space-y-8">
           <Card>
             <CardHeader>
               <CardTitle>Basic Information</CardTitle>
@@ -96,100 +59,36 @@ export default function Account() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-            <FormField
-                control={form.control}
-                name="username"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>username</FormLabel>
-                    <FormControl>
-                      <Input placeholder="johndoe" {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      This is your public display username.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      This is your public display name.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john@example.com" {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      Your email address will not be shared publicly.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone</FormLabel>
-                    <FormControl>
-                      <Input placeholder="+1 234 567 890" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="address"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Address</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="123 Main St, City, Country" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input placeholder="" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div>
+              <Label>username</Label>
+              <Input id="username" type="text" name="username" placeholder="johndoe" />
+              </div>
+              <div>
+              <Label>Name</Label>
+              <Input id="name" type="text" name="name" placeholder="John Doe" />
+              </div>
+              <div>
+              <Label>Email</Label>
+              <Input id="email" type="email" name="email" placeholder=""/>
+              </div>
+              <div>
+              <Label>Phone</Label>
+              <Input id="phone" type="tel" name="phone" placeholder="+1 234 567 890" />
+              </div>
+              <div>
+              <Label>Address</Label>
+              <Textarea id="address" name="address" placeholder="123 Main St, City, Country" />
+              </div>
+              <div>
+              <Label>Password</Label>
+              <Input id="password" type="password" name="password" />
+              </div>
             </CardContent>
           </Card>
           <div className="flex justify-end">
             <Button type="submit">Update profile</Button>
           </div>
         </form>
-      </Form>
     </div>
   );
 }

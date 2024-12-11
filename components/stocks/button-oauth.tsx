@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button";
 import {  RiGithubFill, RiGoogleFill } from "@remixicon/react";
 
 
+/**
+ * UI component for login with
+ * @see https://originui.com/buttons
+ * @returns
+ */
 
+// Login with Github
 export function LoginWithGithub() {
     return (
         <Button className="bg-[#333333] text-white after:flex-1 hover:bg-[#333333]/90" onClick={(() => signIn("github"))}>
@@ -17,6 +23,7 @@ export function LoginWithGithub() {
     )
 }
 
+// Login with Google
 export function LoginWithGoogle() {
     return (
         <Button className="bg-[#DB4437] text-white after:flex-1 hover:bg-[#DB4437]/90" onClick={(() => signIn("google"))}>
