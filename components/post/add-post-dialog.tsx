@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "../../ui/textarea";
-import SubmitButton from "../../stocks/submit-button";
+import { Textarea } from "../ui/textarea";
+import SubmitButton from "../stocks/submit-button";
 import { createPost } from "@/actions/post.actions";
 import { toast } from 'sonner';
 

@@ -8,7 +8,7 @@ import { FileUser, Heart, MessageCircle } from "lucide-react";
 import { User, Post } from "@prisma/client";
 import Link from "next/link";
 import { auth } from "@/auth";
-import { AddPostDialog } from "../dashboard/posts/add-post-dialog";
+import { AddPostDialog } from "../post/add-post-dialog";
 
 type UserWithPosts = User & { posts: Post[] };
 

@@ -6,8 +6,8 @@ import {
 } from "@/components/ui/sidebar";
 import React, { Suspense } from "react";
 import { Separator } from "@/components/ui/separator";
-import PostListTable from "@/components/dashboard/posts/post-list-table";
-import { AddPostDialog } from "@/components/dashboard/posts/add-post-dialog";
+import PostListTable from "@/components/post/post-list-table";
+import { AddPostDialog } from "@/components/post/add-post-dialog";
 import { getUserPosts } from "@/actions/post.actions";
 
 
