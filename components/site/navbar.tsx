@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 import { NavUser } from "./nav-user";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import NavUserSkeleton from "../stocks/nav-user-skeleton";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -55,7 +56,9 @@ export function Navbar() {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
+          <Suspense fallback={<NavUserSkeleton/>}>
             {status === "authenticated" && session?.user ? (
+            
               <NavUser
                 user={
                   session.user as { name: string; email: string; image: string }
@@ -76,7 +79,9 @@ export function Navbar() {
                 </Link>
               </div>
             )}
+            </Suspense>
           </div>
+          
           <div className="-mr-2 flex items-center sm:hidden">
             <Button variant="ghost" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <span className="sr-only">Open main menu</span>
@@ -110,7 +115,7 @@ export function Navbar() {
             ))}
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200">
-            <Suspense fallback={<p>Loading...</p>}>
+            <Suspense fallback={<NavUserSkeleton/>}>
               <div className="flex items-center px-4 gap-2">
                 {status === "authenticated" && session?.user ? (
                   <div>
