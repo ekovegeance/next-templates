@@ -1,5 +1,8 @@
 import { RegisterForm } from "@/components/auth/register-form";
 import { Command } from "lucide-react";
+
+
+
 export default function Page() {
   return (
     <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">

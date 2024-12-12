@@ -1,10 +1,6 @@
-
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { prisma } from '@/lib/prisma';
 import { User} from '@/types/user';
-
-
-
 
 
 export const getUsers = async (): Promise<User[]> => {

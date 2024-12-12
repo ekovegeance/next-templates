@@ -9,6 +9,7 @@ import { User, Post } from "@prisma/client";
 import Link from "next/link";
 import { auth } from "@/auth";
 import { AddPostDialog } from "../post/add-post-dialog";
+import { RiVerifiedBadgeFill } from "@remixicon/react";
 
 type UserWithPosts = User & { posts: Post[] };
 
@@ -37,9 +38,14 @@ export default async function ProfilePage({ user }: { user: UserWithPosts }) {
           </div>
           <div className="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
             <div className="sm:hidden md:block mt-6 min-w-0 flex-1">
-              <h1 className="text-2xl font-bold text-gray-900 truncate">
-                {user?.name}
-              </h1>
+              <div className="flex flex-row items-center">
+                <h1 className="text-2xl font-bold text-gray-900 truncate">
+                  {user?.name}
+                </h1>
+                {user?.username === "ekovegeance" && (
+                  <RiVerifiedBadgeFill className="h-5 w-5 ms-2 text-sky-500" />
+                )}
+              </div>
               <p className="text-sm text-gray-500">{user?.username}</p>
             </div>
             <div className="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">

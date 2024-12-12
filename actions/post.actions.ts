@@ -72,9 +72,7 @@ export async function createPost(fromData: FormData) {
 
     }
   })
-  // redirect('/dashboard/posts/');
-  revalidatePath('dashboard/posts');
-
+  redirect('/dashboard/posts/');
 }
 
 
@@ -94,7 +92,6 @@ export async function updatePost(id: string, fromData: FormData) {
     throw new Error('Failed to update post');
   }
   revalidatePath('dashboard/posts');
-  redirect('/dashboard/posts/');
 }
 
 

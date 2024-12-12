@@ -29,10 +29,8 @@ export default function PostListTable({
 }: {
   posts: (Post & { user: User })[];
 }) {
-  // const [posts, setPosts] = useState<(Post & { user: User })[]>([]);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
-  const [selectedPost, setSelectedPost] = useState<
-    { id: string; title: string; slug: string; content: string } | undefined
+  const [selectedPost, setSelectedPost] = useState< Post | undefined
   >();
 
   const handleEdit = (post: Post) => {

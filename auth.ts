@@ -12,7 +12,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     session: { strategy: "jwt" },
     pages: { signIn: "/login" },
     providers: [
-        GitHub,
+        GitHub({
+            profile: (profile) => ({
+                id: profile.id.toString(), 
+                name: profile.name, 
+                email: profile.email, 
+                image: profile.avatar_url, 
+                username: profile.login, 
+                role: 'user'
+            })
+        }),
         Google,
         Credentials({
             credentials: {
