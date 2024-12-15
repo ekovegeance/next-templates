@@ -1,4 +1,4 @@
-![fullstack](https://github.com/ekovegeance/Fullstack-Nextjs-Templates/blob/main/fullstack.png)
+![fullstack](https://github.com/ekovegeance/next-templates/blob/main/next-templates.png)
 
 ## Getting Started
 
