@@ -18,11 +18,16 @@ import {
 import Link from "next/link";
 import { SignOut } from "@/actions/auth.actions";
 
-
 export function NavUser({
   user,
 }: {
-  user: { id?: string; username?: string, name?: string; email?: string; image?: string };
+  user: {
+    id?: string;
+    username?: string;
+    name?: string;
+    email?: string;
+    image?: string;
+  };
 }) {
   const handlesignOut = async () => {
     await SignOut();
@@ -67,26 +72,28 @@ export function NavUser({
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LayoutDashboard />
-              <Link href="/dashboard">Dashboard</Link>
+            <DropdownMenuItem asChild className="w-full cursor-pointer">
+              <Link href="/dashboard">
+                <LayoutDashboard />
+                Dashboard
+              </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild className=" cursor-pointer">
+            <DropdownMenuItem asChild className="w-full cursor-pointer">
               <Link href={`users/${user.username}`}>
                 <User />
                 Profile
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <UserCog />
-              <Link href="/dashboard/account">Account</Link>
+            <DropdownMenuItem asChild className="w-full cursor-pointer">
+              <Link href="/dashboard/account">
+                <UserCog />
+                Account
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handlesignOut} className="w-full cursor-pointer text-destructive">
               <LogOut />
-              <Button variant="ghost" onClick={handlesignOut}>
-                Sign Out
-              </Button>
+              Sign Out
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

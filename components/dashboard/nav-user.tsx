@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   BadgeCheck,
@@ -25,8 +25,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { SignOut } from "@/actions/auth.actions";
-import { Button } from "../ui/button";
-import Link from 'next/link';
+import Link from "next/link";
 
 export function NavUser({
   user,
@@ -54,7 +53,9 @@ export function NavUser({
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user?.image} alt={user?.name} />
-                <AvatarFallback className="rounded-lg">{user?.name.slice(0, 2).toUpperCase()}</AvatarFallback>
+                <AvatarFallback className="rounded-lg">
+                  {user?.name.slice(0, 2).toUpperCase()}
+                </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">{user?.name}</span>
@@ -73,7 +74,9 @@ export function NavUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user?.image} alt={user?.name} />
-                  <AvatarFallback className="rounded-lg">{user?.name.slice(0, 2).toUpperCase()}</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">
+                    {user?.name.slice(0, 2).toUpperCase()}
+                  </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">{user?.name}</span>
@@ -87,21 +90,26 @@ export function NavUser({
                 <LayoutDashboard />
                 Dashboard
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <User />
-                <Link href={`/users/${user?.username}`}>Profile</Link>
+              <DropdownMenuItem asChild className="w-full cursor-pointer">
+                <Link href={`/users/${user?.username}`}>
+                  <User />
+                  Profile
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-              <BadgeCheck />
-              <Link href="/dashboard/account">Account</Link>
-            </DropdownMenuItem>
+              <DropdownMenuItem asChild className="w-full cursor-pointer">
+                <Link href="/dashboard/account">
+                  <BadgeCheck />
+                  Account
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={handleSignOut}
+              className="w-full cursor-pointer text-destructive"
+            >
               <LogOut />
-              <Button variant="ghost" onClick={handleSignOut}>
-                Log Out
-              </Button>
+              Log Out
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
