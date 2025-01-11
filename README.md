@@ -10,7 +10,7 @@ npm install && npm run dev
 ```
 Configure your local environment
 ```bash
-cp .env.local.example .env.local
+cp .env.example .env
 ```
 Migrate database
 ```bash
