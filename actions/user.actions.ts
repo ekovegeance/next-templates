@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { prisma } from '@/lib/prisma';
-import { User} from '@/types/user';
+import { User } from '@/types/user';
 
 
 export const getUsers = async (): Promise<User[]> => {
@@ -15,10 +15,13 @@ export const getUsers = async (): Promise<User[]> => {
                 role: true,
             },
         });
+        if (!users || users.length === 0) {
+            throw new Error('No users found');
+        }
         return users;
+
     } catch (error) {
         throw new Error('Failed to fetch users');
-        
     }
 };
 
@@ -27,9 +30,9 @@ export const getUserById = async (id: string) => {
         return await prisma.user.findUnique({
             where: { id },
             include: {
-                posts: {orderBy: {createdAt: 'desc'}},
+                posts: { orderBy: { createdAt: 'desc' } },
             },
-            
+
         });
     } catch (error) {
         throw new Error('Failed to fetch user');
@@ -43,9 +46,9 @@ export const getUserByUsername = async (username: string) => {
         return await prisma.user.findUnique({
             where: { username },
             include: {
-                posts: {orderBy: {createdAt: 'desc'}},
+                posts: { orderBy: { createdAt: 'desc' } },
             },
-            
+
         });
     } catch (error) {
         throw new Error('Failed to fetch user');

@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
+import { revalidatePath } from "next/cache";
 
 
 /**
@@ -37,6 +38,7 @@ export const registerCredentials = async (prevState: unknown, formData: FormData
                 password: hashedPassword,
             }
         });
+        revalidatePath("/users");
     } catch (error) {
         return { message: "An error occurred while creating the user." };
     }
