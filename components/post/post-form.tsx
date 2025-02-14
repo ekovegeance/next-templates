@@ -4,7 +4,7 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
-import { createPost } from "@/actions/post.actions";
+import { createPost } from "@/actions/post.action";
 import SubmitButton from "../stocks/submit-button";
 
 

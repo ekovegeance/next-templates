@@ -19,7 +19,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Eye, MoreHorizontal, Pencil, Trash } from "lucide-react";
-import { deletePost } from "@/actions/post.actions";
+import { deletePost } from "@/actions/post.action";
 import Link from "next/link";
 import type { Post, User } from "@prisma/client";
 import EditPostDialog from "./edit-post-dialog";

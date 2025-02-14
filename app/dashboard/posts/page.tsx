@@ -8,7 +8,7 @@ import React, { Suspense } from "react";
 import { Separator } from "@/components/ui/separator";
 import PostListTable from "@/components/post/post-list-table";
 import { AddPostDialog } from "@/components/post/add-post-dialog";
-import { getUserPosts } from "@/actions/post.actions";
+import { getUserPosts } from "@/actions/post.action";
 
 
 export default async function DashboardPostsPage() {

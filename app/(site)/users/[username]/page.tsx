@@ -1,4 +1,4 @@
-import { getUserByUsername } from '@/actions/user.actions';
+import { getUserByUsername } from '@/actions/user.action';
 import ProfilePage from '@/components/users/profile'
 import React from 'react'
 

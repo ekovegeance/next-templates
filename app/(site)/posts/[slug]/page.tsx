@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { getPostBySlug } from "@/actions/post.actions";
+import { getPostBySlug } from "@/actions/post.action";
 import { CalendarIcon } from "lucide-react";
 
 export default async function PostPage({

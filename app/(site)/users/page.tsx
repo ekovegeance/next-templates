@@ -1,5 +1,5 @@
 import UserCardsList from "@/components/users/user-cards-list";
-import { getUsers } from "@/actions/user.actions";
+import { getUsers } from "@/actions/user.action";
 import { Suspense } from "react";
 
 export default async function Users() {

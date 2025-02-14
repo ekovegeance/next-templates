@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Link from "next/link";
-import { SignOut } from "@/actions/auth.actions";
+import { SignOut } from "@/actions/auth.action";
 
 export function NavUser({
   user,

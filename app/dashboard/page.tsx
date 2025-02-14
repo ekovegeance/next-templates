@@ -6,8 +6,8 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { StatsCard } from '../../components/dashboard/stats-card';
-import { getUsers } from "@/actions/user.actions";
-import { getPosts } from "@/actions/post.actions";
+import { getUsers } from "@/actions/user.action";
+import { getPosts } from "@/actions/post.action";
 import { Card, CardTitle, CardHeader, CardContent } from '@/components/ui/card';
 import { RecentUsers } from "@/components/dashboard/recent-users";
 

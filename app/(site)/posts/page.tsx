@@ -1,5 +1,5 @@
 import PostsList from '@/components/post/post-list'
-import { getPosts } from '@/actions/post.actions'
+import { getPosts } from '@/actions/post.action'
 import { Suspense } from 'react'
 
 export default async function PostsPage() {

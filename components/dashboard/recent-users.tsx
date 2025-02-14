@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { getUsers } from "@/actions/user.actions"
+import { getUsers } from "@/actions/user.action"
 
 export async function RecentUsers() {
     const users =  await getUsers();

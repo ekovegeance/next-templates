@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useFormState } from "react-dom";
-import { forgotPassword } from "@/actions/auth.actions";
+import { forgotPassword } from "@/actions/auth.action";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {

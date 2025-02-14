@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import SubmitButton from "@/components/stocks/submit-button";
-import { createPost, updatePost } from "@/actions/post.actions";
+import { createPost, updatePost } from "@/actions/post.action";
 import { toast } from 'sonner';
 
 export default function EditPostDialog({
