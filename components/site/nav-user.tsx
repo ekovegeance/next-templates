@@ -79,7 +79,7 @@ export function NavUser({
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="w-full cursor-pointer">
-              <Link href={`users/${user.username}`}>
+              <Link href={`/users/${user.username}`}>
                 <User />
                 Profile
               </Link>

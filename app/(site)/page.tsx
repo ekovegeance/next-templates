@@ -16,7 +16,9 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Sparkle } from "lucide-react";
 
 export default function Home() {
+
   const { data: session, status } = useSession();
+  
   return (
     <>
       <main>
